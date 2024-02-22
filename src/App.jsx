@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.css';
 import Description from './components/Description/Description';
@@ -8,10 +8,16 @@ import Feedback from './components/Feedback/Feedback';
 import Notification from './components/Notification/Notification';
 
 function App() {
-	const [count, setCount] = useState({
-		good: 0,
-		neutral: 0,
-		bad: 0,
+	const [count, setCount] = useState(() => {
+		const savedCount = JSON.parse(localStorage.getItem('saved-count'));
+
+		return (
+			savedCount || {
+				good: 0,
+				neutral: 0,
+				bad: 0,
+			}
+		);
 	});
 
 	const updateFeedback = feedbackType => {
@@ -40,8 +46,11 @@ function App() {
 	};
 
 	const { good, neutral, bad } = count;
-
 	const totalFeedback = good + neutral + bad;
+
+	useEffect(() => {
+		window.localStorage.setItem('saved-count', JSON.stringify(count));
+	}, [count]);
 
 	return (
 		<>

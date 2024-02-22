@@ -20,6 +20,6 @@ const Feedback = ({ count, totalFeedback }) => {
 export default Feedback;
 
 Feedback.propTypes = {
-	count: PropTypes.number,
+	count: PropTypes.object,
 	totalFeedback: PropTypes.number,
 };
