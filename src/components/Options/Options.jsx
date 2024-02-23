@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import css from './Options.module.css';
+
 const Options = ({ updateFeedback, totalFeedback }) => {
 	return (
 		<>
-			<ul>
+			<ul className={clsx(css.option)}>
 				<li>
 					<button
+						className={clsx(css.optionBtn)}
 						name='good'
 						type='button'
 						onClick={() => updateFeedback('good')}
@@ -14,6 +18,7 @@ const Options = ({ updateFeedback, totalFeedback }) => {
 				</li>
 				<li>
 					<button
+						className={clsx(css.optionBtn)}
 						name='neutral'
 						type='button'
 						onClick={() => updateFeedback('neutral')}
@@ -23,6 +28,7 @@ const Options = ({ updateFeedback, totalFeedback }) => {
 				</li>
 				<li>
 					<button
+						className={clsx(css.optionBtn)}
 						name='bad'
 						type='button'
 						onClick={() => updateFeedback('bad')}
@@ -33,6 +39,7 @@ const Options = ({ updateFeedback, totalFeedback }) => {
 				{totalFeedback >= 1 ? (
 					<li>
 						<button
+							className={clsx(css.optionBtn)}
 							name='reset'
 							type='button'
 							onClick={() => updateFeedback('reset')}

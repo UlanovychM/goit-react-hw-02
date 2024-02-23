@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import './App.css';
+import clsx from 'clsx';
+import css from './global.module.css';
 import Description from './components/Description/Description';
 import Options from './components/Options/Options';
 import Feedback from './components/Feedback/Feedback';
@@ -54,13 +55,18 @@ function App() {
 
 	return (
 		<>
-			<Description />
-			<Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
-			{totalFeedback >= 1 ? (
-				<Feedback count={count} totalFeedback={totalFeedback} />
-			) : (
-				<Notification />
-			)}
+			<div className={clsx(css.global)}>
+				<Description />
+				<Options
+					updateFeedback={updateFeedback}
+					totalFeedback={totalFeedback}
+				/>
+				{totalFeedback >= 1 ? (
+					<Feedback count={count} totalFeedback={totalFeedback} />
+				) : (
+					<Notification />
+				)}
+			</div>
 		</>
 	);
 }

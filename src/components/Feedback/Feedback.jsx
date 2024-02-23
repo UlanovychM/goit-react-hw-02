@@ -1,18 +1,32 @@
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import css from './Feedback.module.css';
 
 const Feedback = ({ count, totalFeedback }) => {
 	const { good, neutral, bad } = count;
 
 	return (
 		<>
-			<p>Good: {good}</p>
-			<p>Neutral: {neutral}</p>
-			<p>Bad: {bad}</p>
-			<p>Total: {totalFeedback}</p>
-			<p>
-				Positive:
-				{`${Math.round(((good + neutral) / totalFeedback) * 100)}%`}
-			</p>
+			<ul className={clsx(css.feedback)}>
+				<li>
+					<p>Good: {good}</p>
+				</li>
+				<li>
+					<p>Neutral: {neutral}</p>
+				</li>
+				<li>
+					<p>Bad: {bad}</p>
+				</li>
+				<li>
+					<p>Total: {totalFeedback}</p>
+				</li>
+				<li>
+					<p>
+						Positive:
+						{`${Math.round(((good + neutral) / totalFeedback) * 100)}%`}
+					</p>
+				</li>
+			</ul>
 		</>
 	);
 };

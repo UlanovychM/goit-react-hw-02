@@ -1,7 +1,10 @@
+import clsx from 'clsx';
+import css from './Notification.module.css';
+
 const Notification = () => {
 	return (
 		<>
-			<p>No feedback yet</p>
+			<p className={clsx(css.notification)}>No feedback yet</p>
 		</>
 	);
 };

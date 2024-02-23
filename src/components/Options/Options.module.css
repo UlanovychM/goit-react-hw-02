@@ -1,0 +1,10 @@
+.option {
+	display: flex;
+	gap: 15px;
+	margin-top: 20px;
+}
+
+.optionBtn {
+	width: 75px;
+	height: 35px;
+}
